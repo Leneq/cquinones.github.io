@@ -575,6 +575,126 @@
     color: var(--muted);
   }
 
+  /* SAMPLES */
+  .samples-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .sample-card {
+    background: var(--surface);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .sample-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: transparent;
+    transition: background 0.2s;
+  }
+  .sample-card:hover { background: var(--surface2); }
+  .sample-card:hover::before { background: var(--teal); }
+
+  .sample-card-wide { grid-column: span 2; }
+
+  .sample-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sample-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .sample-icon { font-size: 20px; }
+
+  .sample-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+  }
+
+  .sample-desc {
+    font-size: 14px;
+    color: var(--soft);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .sample-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .sample-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .sample-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  .sample-btn-primary {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    background: var(--teal);
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .sample-btn-primary:hover { background: #d4623f; }
+
+  .sample-btn-ghost {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .sample-btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+
+  .samples-note {
+    margin-top: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    font-style: italic;
+  }
+
   /* REVEAL */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
@@ -601,6 +721,7 @@
   <div class="nav-name">Charlene <span>Quinones</span></div>
   <div class="nav-links">
     <a href="#experience">Experience</a>
+    <a href="#samples">Samples</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
@@ -616,7 +737,7 @@
     <p class="hero-summary">17+ years translating complex technical systems into clear, user-focused documentation. From SaaS platforms and API references to enterprise style guides and localized content — precision is the craft.</p>
     <div class="hero-cta">
       <a href="#experience" class="btn-primary">View Experience</a>
-      <a href="mailto:leneq@icloud.com" class="btn-ghost">Get In Touch</a>
+      <a href="/cdn-cgi/l/email-protection#6f030a010a1e2f060c03001a0b410c0002" class="btn-ghost">Get In Touch</a>
     </div>
   </div>
 
@@ -809,11 +930,116 @@
   </div>
 </section>
 
+<!-- SAMPLES -->
+<section id="samples">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <span class="section-num">02 /</span>
+      <h2>Work Samples</h2>
+    </div>
+
+    <div class="samples-grid reveal">
+
+      <div class="sample-card">
+        <div class="sample-top">
+          <span class="sample-type">User Guide / Online Help</span>
+          <span class="sample-icon">📖</span>
+        </div>
+        <h3 class="sample-title">SaaS Product End-User Guide</h3>
+        <p class="sample-desc">Comprehensive online help documentation for a SaaS platform serving 48,000+ users. Includes task-oriented topics, conceptual overviews, and troubleshooting content authored in MadCap Flare.</p>
+        <div class="sample-tags">
+          <span class="sample-tag">MadCap Flare</span>
+          <span class="sample-tag">HTML/CSS</span>
+          <span class="sample-tag">DITA</span>
+        </div>
+        <div class="sample-actions">
+          <a href="#" class="sample-btn-primary">View Online →</a>
+          <a href="#" class="sample-btn-ghost">⬇ Download PDF</a>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="sample-top">
+          <span class="sample-type">Release Notes</span>
+          <span class="sample-icon">📋</span>
+        </div>
+        <h3 class="sample-title">Product Release Notes — v4.2</h3>
+        <p class="sample-desc">Structured release notes covering new features, enhancements, bug fixes, and known issues. Written for both technical and non-technical audiences with clear, scannable formatting.</p>
+        <div class="sample-tags">
+          <span class="sample-tag">Agile/Scrum</span>
+          <span class="sample-tag">Confluence</span>
+          <span class="sample-tag">Jira</span>
+        </div>
+        <div class="sample-actions">
+          <a href="#" class="sample-btn-primary">View Online →</a>
+          <a href="#" class="sample-btn-ghost">⬇ Download PDF</a>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="sample-top">
+          <span class="sample-type">UI Copy / Microcopy</span>
+          <span class="sample-icon">✏️</span>
+        </div>
+        <h3 class="sample-title">SaaS Dashboard UI Messaging</h3>
+        <p class="sample-desc">In-app microcopy including button labels, tooltips, notifications, empty states, and error messages. Crafted to reduce friction and guide users through complex workflows intuitively.</p>
+        <div class="sample-tags">
+          <span class="sample-tag">UX Writing</span>
+          <span class="sample-tag">UI Messaging</span>
+          <span class="sample-tag">WalkMe</span>
+        </div>
+        <div class="sample-actions">
+          <a href="#" class="sample-btn-primary">View Online →</a>
+          <a href="#" class="sample-btn-ghost">⬇ Download PDF</a>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="sample-top">
+          <span class="sample-type">Style Guide</span>
+          <span class="sample-icon">📐</span>
+        </div>
+        <h3 class="sample-title">Documentation Style Guide & Standards</h3>
+        <p class="sample-desc">Company-wide writing standards covering voice and tone, terminology, formatting conventions, inclusive language guidelines, and reusable templates. Adopted across multiple product teams.</p>
+        <div class="sample-tags">
+          <span class="sample-tag">Content Strategy</span>
+          <span class="sample-tag">Information Architecture</span>
+          <span class="sample-tag">Templates</span>
+        </div>
+        <div class="sample-actions">
+          <a href="#" class="sample-btn-primary">View Online →</a>
+          <a href="#" class="sample-btn-ghost">⬇ Download PDF</a>
+        </div>
+      </div>
+
+      <div class="sample-card sample-card-wide">
+        <div class="sample-top">
+          <span class="sample-type">Instructional Video</span>
+          <span class="sample-icon">🎬</span>
+        </div>
+        <h3 class="sample-title">Product Walkthrough & Training Video</h3>
+        <p class="sample-desc">Screen-recorded instructional video with narration, callouts, and step-by-step demonstrations created using Camtasia and Adobe Captivate. Designed for onboarding new users and reducing support escalations.</p>
+        <div class="sample-tags">
+          <span class="sample-tag">Camtasia</span>
+          <span class="sample-tag">Adobe Captivate</span>
+          <span class="sample-tag">Snagit</span>
+        </div>
+        <div class="sample-actions">
+          <a href="#" class="sample-btn-primary">Watch Video →</a>
+          <a href="#" class="sample-btn-ghost">⬇ Download Script</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="samples-note">* Replace the placeholder links above with your real URLs and file links before publishing.</p>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section id="skills" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="section-wrap">
     <div class="section-head reveal">
-      <span class="section-num">02 /</span>
+      <span class="section-num">03 /</span>
       <h2>Skills & Tools</h2>
     </div>
 
@@ -889,7 +1115,7 @@
 <section id="education">
   <div class="section-wrap">
     <div class="section-head reveal">
-      <span class="section-num">03 /</span>
+      <span class="section-num">04 /</span>
       <h2>Education</h2>
     </div>
 
@@ -911,7 +1137,7 @@
 <section id="contact">
   <div class="section-wrap">
     <div class="section-head reveal">
-      <span class="section-num">04 /</span>
+      <span class="section-num">05 /</span>
       <h2>Get In Touch</h2>
     </div>
 
@@ -921,7 +1147,7 @@
 
         <div class="contact-detail">
           <span class="contact-label">Email</span>
-          <span class="contact-value">leneq@icloud.com</span>
+          <span class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="93fff6fdf6e2d3faf0fffce6f7bdf0fcfe">[email&#160;protected]</a></span>
         </div>
         <div class="contact-detail">
           <span class="contact-label">Phone</span>
@@ -971,7 +1197,7 @@
   © 2026 Charlene Quinones · Senior Technical Writer · Bronx, NY
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll reveal
   const els = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver(entries => {
@@ -985,14 +1211,4 @@
   els.forEach(el => obs.observe(el));
 
   // Contact form
-  function handleSubmit() {
-    const btn = document.querySelector('.submit-btn');
-    btn.textContent = 'Sending...';
-    setTimeout(() => {
-      btn.style.display = 'none';
-      document.getElementById('successMsg').style.display = 'block';
-    }, 1000);
-  }
-</script>
-</body>
-</html>
+  function handleSubmit
