@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Charlene Quinones — Technical Writer</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f0ede8;
+    --surface: #e8e4dd;
+    --surface2: #dedad2;
+    --border: #c8c2b8;
+    --teal: #b94a2c;
+    --teal-dim: #d4735a;
+    --text: #1a1814;
+    --muted: #6b6560;
+    --soft: #3d3830;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    height: 60px;
+    background: rgba(240,237,232,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    animation: fadeDown 0.6s ease both;
+  }
+
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:none; } }
+
+  .nav-name {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .nav-name span { color: var(--teal); }
+
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  .nav-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid var(--teal-dim);
+    color: var(--teal);
+    animation: pulse 3s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { border-color: var(--teal-dim); }
+    50% { border-color: var(--teal); }
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 48px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 64px;
+  }
+
+  .hero-left { animation: fadeUp 0.9s 0.1s ease both; }
+  .hero-right { animation: fadeUp 0.9s 0.3s ease both; }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:none; } }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 24px;
+  }
+  .hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--teal); }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(54px, 6.5vw, 90px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+  }
+
+  h1 .line2 {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .hero-summary {
+    font-size: 15px;
+    color: var(--soft);
+    line-height: 1.8;
+    margin-bottom: 36px;
+    max-width: 480px;
+  }
+
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 13px 28px;
+    background: var(--teal);
+    color: var(--bg);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #d4623f; transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 13px 28px;
+    border: 1px solid var(--border);
+    color: var(--soft);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+
+  .stat-box { background: var(--surface); padding: 24px; }
+
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--teal);
+    line-height: 1;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-location::before { content: '◎'; color: var(--teal); }
+
+  /* SECTIONS */
+  .section-wrap { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 48px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--teal);
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  /* TICKER */
+  .expertise-strip {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 48px;
+    overflow: hidden;
+  }
+
+  .expertise-scroll {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+  }
+
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  .expertise-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 32px;
+    flex-shrink: 0;
+  }
+  .expertise-item span { color: var(--teal); margin-right: 8px; }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+
+  .exp-item {
+    background: var(--surface);
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: transparent;
+    transition: background 0.2s;
+  }
+  .exp-item:hover { background: var(--surface2); }
+  .exp-item:hover::before { background: var(--teal); }
+
+  .exp-meta { padding-top: 4px; }
+
+  .exp-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .exp-company { font-size: 13px; font-weight: 600; color: var(--soft); margin-bottom: 4px; }
+
+  .exp-location {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .exp-role {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+  .exp-bullets li {
+    font-size: 14px;
+    color: var(--soft);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--teal); font-size: 12px; }
+
+  /* SKILLS */
+  .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  .skills-block { background: var(--surface); border: 1px solid var(--border); padding: 28px; }
+
+  .skills-block-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skills-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .skill-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--soft);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .skill-tag:hover { border-color: var(--teal); color: var(--teal); }
+  .skill-tag.highlight { border-color: var(--teal-dim); color: var(--teal); background: rgba(185,74,44,0.05); }
+
+  /* EDUCATION */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .edu-card { background: var(--surface); padding: 32px; }
+
+  .edu-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+
+  .edu-degree { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; line-height: 1.3; margin-bottom: 8px; }
+  .edu-school { font-size: 13px; color: var(--soft); margin-bottom: 4px; }
+  .edu-date { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--muted); }
+
+  /* CONTACT */
+  #contact { background: var(--surface); border-top: 1px solid var(--border); }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+
+  .contact-detail { display: flex; align-items: center; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+
+  .contact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .contact-value { font-size: 14px; color: var(--text); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 14px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+  .form-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-input, .form-textarea {
+    background: #f7f4ef;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 14px;
+    padding: 11px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+    width: 100%;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--teal); }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--muted); }
+
+  .submit-btn {
+    background: var(--teal);
+    border: none;
+    color: var(--bg);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    cursor: pointer;
+    align-self: flex-start;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .submit-btn:hover { background: #d4623f; }
+
+  .success-msg {
+    display: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding: 16px;
+    border: 1px solid var(--teal-dim);
+  }
+
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    nav { padding: 0 24px; }
+    .nav-badge { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 90px 24px 40px; gap: 40px; }
+    .hero-right { order: -1; }
+    .section-wrap { padding: 60px 24px; }
+    .exp-item { grid-template-columns: 1fr; gap: 12px; }
+    .skills-layout, .edu-grid, .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .expertise-strip { padding: 20px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Charlene <span>Quinones</span></div>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-badge">Open to Work</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Senior Technical Writer · Bronx, NY</p>
+    <h1>Charlene<br /><span class="line2">Quinones</span></h1>
+    <p class="hero-summary">17+ years translating complex technical systems into clear, user-focused documentation. From SaaS platforms and API references to enterprise style guides and localized content — precision is the craft.</p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="mailto:leneq@icloud.com" class="btn-ghost">Get In Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stats-grid">
+      <div class="stat-box">
+        <span class="stat-num">17+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">48K+</span>
+        <span class="stat-label">Active Users Served</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">10+</span>
+        <span class="stat-label">Languages Localized</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">21.6%</span>
+        <span class="stat-label">YoY User Growth</span>
+      </div>
+    </div>
+    <div class="hero-location">Bronx, NY · Remote-Friendly</div>
+  </div>
+</div>
+
+<!-- EXPERTISE TICKER -->
+<div class="expertise-strip">
+  <div class="expertise-scroll">
+    <span class="expertise-item"><span>✦</span>API Documentation</span>
+    <span class="expertise-item"><span>✦</span>MadCap Flare</span>
+    <span class="expertise-item"><span>✦</span>DITA / Heretto</span>
+    <span class="expertise-item"><span>✦</span>UX Writing</span>
+    <span class="expertise-item"><span>✦</span>Information Architecture</span>
+    <span class="expertise-item"><span>✦</span>Agile / Scrum</span>
+    <span class="expertise-item"><span>✦</span>Style Guides</span>
+    <span class="expertise-item"><span>✦</span>Release Notes</span>
+    <span class="expertise-item"><span>✦</span>Translation & Localization</span>
+    <span class="expertise-item"><span>✦</span>Google Analytics</span>
+    <span class="expertise-item"><span>✦</span>Docs-as-Code</span>
+    <span class="expertise-item"><span>✦</span>Confluence & Jira</span>
+    <span class="expertise-item"><span>✦</span>API Documentation</span>
+    <span class="expertise-item"><span>✦</span>MadCap Flare</span>
+    <span class="expertise-item"><span>✦</span>DITA / Heretto</span>
+    <span class="expertise-item"><span>✦</span>UX Writing</span>
+    <span class="expertise-item"><span>✦</span>Information Architecture</span>
+    <span class="expertise-item"><span>✦</span>Agile / Scrum</span>
+    <span class="expertise-item"><span>✦</span>Style Guides</span>
+    <span class="expertise-item"><span>✦</span>Release Notes</span>
+    <span class="expertise-item"><span>✦</span>Translation & Localization</span>
+    <span class="expertise-item"><span>✦</span>Google Analytics</span>
+    <span class="expertise-item"><span>✦</span>Docs-as-Code</span>
+    <span class="expertise-item"><span>✦</span>Confluence & Jira</span>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <span class="section-num">01 /</span>
+      <h2>Experience</h2>
+    </div>
+
+    <div class="exp-list reveal">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">July 2015 — Jan 2026</p>
+          <p class="exp-company">Gerber Technology, a Lectra Company</p>
+          <p class="exp-location">New York, NY</p>
+        </div>
+        <div>
+          <p class="exp-role">Technical Writer</p>
+          <ul class="exp-bullets">
+            <li>Owned end-to-end documentation for a SaaS product — including user guides, release notes, and UI copy (tooltips, button text, notifications)</li>
+            <li>Created, migrated, and published help content using MadCap Flare (HTML, CSS, XML) and Heretto (DITA) across channels including PDF and online help</li>
+            <li>Generated Google Analytics reports for 48,000+ active users, tracking a 21.6% year-over-year user growth rate</li>
+            <li>Reduced customer support tickets through clearer, task-oriented documentation</li>
+            <li>Collaborated cross-functionally with product management and engineering to define documentation requirements aligned to sprint deliverables</li>
+            <li>Conducted SME interviews with remote and distributed teams in Agile/Scrum environments</li>
+            <li>Established and enforced company-wide style guides, documentation standards, and reusable templates</li>
+            <li>Implemented translation and localization workflows for global content in 10+ languages</li>
+            <li>Leveraged generative AI tools (ChatGPT, Grammarly, Claude) to improve documentation quality and efficiency</li>
+            <li>Mentored a junior technical writer and provided ongoing editorial guidance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">August 2013</p>
+          <p class="exp-company">Quirky Inc.</p>
+          <p class="exp-location">Freelance</p>
+        </div>
+        <div>
+          <p class="exp-role">Freelance Technical Writer</p>
+          <ul class="exp-bullets">
+            <li>Created end-user documentation and safety warnings for five consumer products</li>
+            <li>Collaborated with product managers and stakeholders to gather and refine documentation requirements</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">2008 — July 2015</p>
+          <p class="exp-company">Universal Remote Control, Inc.</p>
+          <p class="exp-location">Harrison, NY</p>
+        </div>
+        <div>
+          <p class="exp-role">Technical Writer</p>
+          <ul class="exp-bullets">
+            <li>Created and maintained technical documentation for both internal and external audiences</li>
+            <li>Designed and laid out hardware documentation adhering to UL, FCC, and international safety standards using QuarkXPress and Adobe InDesign</li>
+            <li>Created instructional videos using Adobe Captivate</li>
+            <li>Proofread and copyedited English and Spanish manuals</li>
+            <li>Managed graphics, screenshots, and PDFs using Adobe Photoshop, Snagit, and Acrobat</li>
+            <li>Tracked documentation issues using Atlassian's Jira and maintained version control via SharePoint and Subversion</li>
+            <li>Published content to an online help wiki and collaborated with QA, support, and leadership teams</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">2005 — 2008</p>
+          <p class="exp-company">Universal Remote Control, Inc.</p>
+          <p class="exp-location">Harrison, NY</p>
+        </div>
+        <div>
+          <p class="exp-role">Technical Support Asst. Manager / Web Trainer</p>
+          <ul class="exp-bullets">
+            <li>Trained customers, new hires, and specialists; supported sales, dealers, and distributors</li>
+            <li>Coordinated and delivered product training webinars</li>
+            <li>Provided bilingual (English/Spanish) technical support via phone and email</li>
+            <li>Conducted beta testing of hardware and software across Windows platforms</li>
+            <li>Logged and tracked defects in Jira and served as liaison between engineering and QA</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">2000 — 2001</p>
+          <p class="exp-company">Luxgood Ltd.</p>
+          <p class="exp-location">New York, NY</p>
+        </div>
+        <div>
+          <p class="exp-role">Lead Quality Assurance Engineer</p>
+          <ul class="exp-bullets">
+            <li>Managed and trained QA testers for a luxury goods eCommerce platform</li>
+            <li>Oversaw web regression, UAT, GUI, and positive/negative testing</li>
+            <li>Approved and released QA-tested software to clients</li>
+            <li>Performed cross-browser and cross-platform testing for web applications</li>
+            <li>Conducted black-box testing and created manual and automated test scripts using Empirix E-Tester and Astra QuickTest</li>
+            <li>Identified and tracked defects, collaborating with developers on resolution</li>
+            <li>Managed file synchronization between Development and QA using PVCS and UNIX</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">1999 — 2000</p>
+          <p class="exp-company">SNAZ Commerce Solutions</p>
+          <p class="exp-location">New York, NY</p>
+        </div>
+        <div>
+          <p class="exp-role">Quality Assurance Tester</p>
+          <ul class="exp-bullets">
+            <li>Performed unit, integration, positive, negative, and regression testing for web and WAP applications</li>
+            <li>Tested vendor sites across U.S. and European environments</li>
+            <li>Validated bug fixes in development, QA, and production environments</li>
+            <li>Conducted WAP testing on smartphone devices</li>
+            <li>Logged and tracked defects using Bugzilla</li>
+            <li>Collaborated with developers to identify and resolve software defects</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <span class="section-num">02 /</span>
+      <h2>Skills & Tools</h2>
+    </div>
+
+    <div class="skills-layout reveal">
+      <div>
+        <div class="skills-block" style="margin-bottom: 16px;">
+          <p class="skills-block-title">Core Competencies</p>
+          <div class="skills-tags">
+            <span class="skill-tag highlight">Software & Hardware Documentation</span>
+            <span class="skill-tag highlight">SaaS Products</span>
+            <span class="skill-tag highlight">Information Architecture</span>
+            <span class="skill-tag highlight">Content Strategy</span>
+            <span class="skill-tag">Documentation Lifecycle Management</span>
+            <span class="skill-tag">Knowledge Base Management</span>
+            <span class="skill-tag highlight">Agile / Scrum</span>
+            <span class="skill-tag">Cross-Functional Collaboration</span>
+            <span class="skill-tag">SME Interviews</span>
+            <span class="skill-tag highlight">Style Guides & Standards</span>
+            <span class="skill-tag">Editing & Quality Assurance</span>
+            <span class="skill-tag highlight">Release Notes</span>
+            <span class="skill-tag highlight">UX & UI Writing</span>
+            <span class="skill-tag">Online Help</span>
+            <span class="skill-tag highlight">Translation & Localization</span>
+          </div>
+        </div>
+        <div class="skills-block">
+          <p class="skills-block-title">Languages</p>
+          <div class="skills-tags">
+            <span class="skill-tag highlight">English (Native)</span>
+            <span class="skill-tag highlight">Spanish (Bilingual)</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="skills-block" style="margin-bottom: 16px;">
+          <p class="skills-block-title">Tools & Technologies</p>
+          <div class="skills-tags">
+            <span class="skill-tag highlight">MadCap Flare</span>
+            <span class="skill-tag highlight">Heretto (DITA)</span>
+            <span class="skill-tag">Confluence</span>
+            <span class="skill-tag">Jira</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Wrike</span>
+            <span class="skill-tag highlight">HTML / CSS / XML</span>
+            <span class="skill-tag highlight">Google Analytics</span>
+            <span class="skill-tag">Microsoft 365 (Teams, SharePoint, Word, Excel, Visio)</span>
+            <span class="skill-tag">Adobe Creative Cloud</span>
+            <span class="skill-tag">Adobe Acrobat</span>
+            <span class="skill-tag">Snagit</span>
+            <span class="skill-tag">Camtasia</span>
+            <span class="skill-tag">WalkMe</span>
+            <span class="skill-tag">WordPress</span>
+            <span class="skill-tag">Shopify</span>
+          </div>
+        </div>
+        <div class="skills-block">
+          <p class="skills-block-title">AI Tools</p>
+          <div class="skills-tags">
+            <span class="skill-tag highlight">OpenAI ChatGPT</span>
+            <span class="skill-tag highlight">Grammarly</span>
+            <span class="skill-tag highlight">Anthropic Claude</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <span class="section-num">03 /</span>
+      <h2>Education</h2>
+    </div>
+    <div class="edu-grid reveal">
+      <div class="edu-card">
+        <p class="edu-type">Bachelor's Degree</p>
+        <p class="edu-degree">B.S. in Information Technology</p>
+        <p class="edu-school" style="color: var(--teal); font-size: 12px; margin-bottom: 6px; font-family: 'DM Mono', monospace; letter-spacing: 0.06em; text-transform: uppercase;">Minor: Multimedia & Visual Communication</p>
+        <p class="edu-school">University of Phoenix</p>
+        <p class="edu-date">February 2012</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <span class="section-num">04 /</span>
+      <h2>Get In Touch</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <div>
+        <p style="font-size:15px; color: var(--soft); line-height: 1.8; margin-bottom: 32px;">Open to full-time, contract, and freelance opportunities. Whether you need a documentation strategy overhaul, a new help center, or an embedded technical writer — let's talk.</p>
+        <div class="contact-detail">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">leneq@icloud.com</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">347-281-0695</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">Location</span>
+          <span class="contact-value">Bronx, NY · Remote-Friendly</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">Status</span>
+          <span class="contact-value" style="color: var(--teal);">Open to New Opportunities</span>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Smith" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="jane@company.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Company / Role</label>
+          <input class="form-input" type="text" placeholder="Acme Corp — Hiring Manager" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" rows="4" placeholder="Tell me about the opportunity or project..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="handleSubmit()">Send Message →</button>
+        <div class="success-msg" id="successMsg">✓ Message sent — Charlene will be in touch shortly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Charlene Quinones · Senior Technical Writer · Bronx, NY
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(el => obs.observe(el));
+
+  function handleSubmit() {
+    const btn = document.querySelector('.submit-btn');
+    btn.textContent = 'Sending...';
+    setTimeout(() => {
+      btn.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    }, 1000);
+  }
+</script>
+</body>
+</html>
