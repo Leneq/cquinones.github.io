@@ -476,6 +476,14 @@
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
+  /* SAMPLE CARDS */
+  .sample-card { background: var(--bg); border: 1px solid var(--border); padding: 28px; transition: border-color 0.2s, transform 0.2s; }
+  .sample-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+  .sample-type { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+  .sample-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.3; }
+  .sample-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+  .sample-link { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+
   /* RESPONSIVE */
   @media (max-width: 800px) {
     nav { padding: 0 24px; }
@@ -499,6 +507,7 @@
     <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
+    <a href="#samples">Samples</a>
     <a href="#contact">Contact</a>
   </div>
   <div class="nav-badge">Open to Work</div>
@@ -509,10 +518,10 @@
   <div class="hero-left">
     <p class="hero-tag">Senior Technical Writer · New York, NY</p>
     <h1>Charlene<br /><span class="line2">Quinones</span></h1>
-    <p class="hero-summary">17+ years translating complex technical systems into clear, user-focused documentation. From SaaS platforms to enterprise style guides and localized content — precision is the craft.</p>
+    <p class="hero-summary">17+ years translating complex technical systems into clear, user-focused documentation. From SaaS platforms and API references to enterprise style guides and localized content — precision is the craft.</p>
     <div class="hero-cta">
       <a href="#experience" class="btn-primary">View Experience</a>
-      <a href="mailto:leneq@icloud.com" class="btn-ghost">Get In Touch</a>
+      <a href="/cdn-cgi/l/email-protection#a3cfc6cdc6d2e3cac0cfccd6c78dc0ccce" class="btn-ghost">Get In Touch</a>
     </div>
   </div>
 
@@ -535,7 +544,7 @@
         <span class="stat-label">YoY User Growth</span>
       </div>
     </div>
-    <div class="hero-location">New York, NY · Remote-Friendly</div>
+    <div class="hero-location">New York, New York · Remote-Friendly</div>
   </div>
 </div>
 
@@ -581,7 +590,7 @@
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-date">July 2015 — January 2026</p>
+          <p class="exp-date">July 2015 — Jan 2026</p>
           <p class="exp-company">Gerber Technology, a Lectra Company</p>
           <p class="exp-location">New York, NY</p>
         </div>
@@ -604,7 +613,7 @@
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-date">August 2013 - September 2013</p>
+          <p class="exp-date">August 2013</p>
           <p class="exp-company">Quirky Inc.</p>
           <p class="exp-location">Freelance</p>
         </div>
@@ -639,7 +648,7 @@
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-date">March 2005 — 2008</p>
+          <p class="exp-date">2005 — 2008</p>
           <p class="exp-company">Universal Remote Control, Inc.</p>
           <p class="exp-location">Harrison, NY</p>
         </div>
@@ -657,27 +666,7 @@
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-date">September 2001 — March 2005</p>
-          <p class="exp-company">Riverbay Corporation</p>
-          <p class="exp-location">Bronx, NY</p>
-        </div>
-        <div>
-          <p class="exp-role">Administrative Assistant</p>
-          <ul class="exp-bullets">
-            <li>Provided administrative support to the Director of Buildings and Grounds</li>
-            <li>Communicated with senior management</li>
-            <li>Maintained payroll attendance for 200+ employees and resolved discrepancies</li>
-            <li>Prepared HR documentation for hires, transfers, and terminations</li>
-            <li>Performed general administrative duties using Microsoft Word and Excel</li>
-            <li>Identified and tracked defects, collaborating with developers on resolution</li>
-            <li>Demonstrated strong written and verbal communication, multitasking, and prioritization skills</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="exp-item">
-        <div class="exp-meta">
-          <p class="exp-date">October 2000 — March 2001</p>
+          <p class="exp-date">2000 — 2001</p>
           <p class="exp-company">Luxgood Ltd.</p>
           <p class="exp-location">New York, NY</p>
         </div>
@@ -697,7 +686,7 @@
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-date">September 1999 — October 2000</p>
+          <p class="exp-date">1999 — 2000</p>
           <p class="exp-company">SNAZ Commerce Solutions</p>
           <p class="exp-location">New York, NY</p>
         </div>
@@ -772,9 +761,6 @@
             <span class="skill-tag">Microsoft 365 (Teams, SharePoint, Word, Excel, Visio)</span>
             <span class="skill-tag">Adobe Creative Cloud</span>
             <span class="skill-tag">Adobe Acrobat</span>
-            <span class="skill-tag">Adobe Captivate</span>           
-            <span class="skill-tag">Adobe Illustrator</span>
-            <span class="skill-tag">Adobe Photoshop</span>
             <span class="skill-tag">Snagit</span>
             <span class="skill-tag">Camtasia</span>
             <span class="skill-tag">WalkMe</span>
@@ -814,11 +800,69 @@
   </div>
 </section>
 
+<!-- SAMPLES -->
+<section id="samples" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <span class="section-num">04 /</span>
+      <h2>Writing Samples</h2>
+    </div>
+    <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+
+      <a href="https://help.gerbertechnology.com/home.htm" target="_blank" rel="noopener" style="text-decoration: none;">
+        <div class="sample-card">
+          <p class="sample-type">Online Help</p>
+          <p class="sample-title">Gerber Technology Help Center</p>
+          <p class="sample-desc">Full online help system for Gerber YuniquePLM — structured, searchable documentation serving 48,000+ active users across a global SaaS platform.</p>
+          <span class="sample-link">View Help Center →</span>
+        </div>
+      </a>
+
+      <a href="Documentation_Template.pdf" target="_blank" rel="noopener" style="text-decoration: none;">
+        <div class="sample-card">
+          <p class="sample-type">Style Guide</p>
+          <p class="sample-title">Documentation Template &amp; Standards</p>
+          <p class="sample-desc">Company-wide documentation style guide establishing layout standards, typography, formatting rules, and writing conventions for all technical deliverables.</p>
+          <span class="sample-link">View PDF →</span>
+        </div>
+      </a>
+
+      <a href="Color_Folder_V9.9.pdf" target="_blank" rel="noopener" style="text-decoration: none;">
+        <div class="sample-card">
+          <p class="sample-type">User Guide</p>
+          <p class="sample-title">Gerber YuniquePLM — Color Folder V9.9</p>
+          <p class="sample-desc">End-to-end user guide for the Color Folder module of Gerber YuniquePLM, covering palette creation, color management, seasonal workflows, and reporting.</p>
+          <span class="sample-link">View PDF →</span>
+        </div>
+      </a>
+
+      <a href="https://help.gerbertechnology.com/Whats_New/YuniquePLM/Gerber%20YuniquePLM%20In%20The%20Cloud%20v10.2.pdf" target="_blank" rel="noopener" style="text-decoration: none;">
+        <div class="sample-card">
+          <p class="sample-type">Release Notes</p>
+          <p class="sample-title">Gerber YuniquePLM In The Cloud v10.2</p>
+          <p class="sample-desc">Release notes documenting new features, enhancements, and resolved issues for a major cloud platform version — written for a technical and non-technical audience.</p>
+          <span class="sample-link">View PDF →</span>
+        </div>
+      </a>
+
+      <a href="https://help.gerbertechnology.com/Resources/Multimedia/I-Selected%20Seam.mp4" target="_blank" rel="noopener" style="text-decoration: none;">
+        <div class="sample-card">
+          <p class="sample-type">Instructional Video</p>
+          <p class="sample-title">Selected Seam — YuniquePLM Tutorial</p>
+          <p class="sample-desc">Short-form instructional video demonstrating a YuniquePLM workflow — combining clear narration, screen capture, and concise step-by-step guidance.</p>
+          <span class="sample-link">Watch Video →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-wrap">
     <div class="section-head reveal">
-      <span class="section-num">04 /</span>
+      <span class="section-num">05 /</span>
       <h2>Get In Touch</h2>
     </div>
     <div class="contact-grid reveal">
@@ -826,11 +870,11 @@
         <p style="font-size:15px; color: var(--soft); line-height: 1.8; margin-bottom: 32px;">Open to full-time, contract, and freelance opportunities. Whether you need a documentation strategy overhaul, a new help center, or an embedded technical writer — let's talk.</p>
         <div class="contact-detail">
           <span class="contact-label">Email</span>
-          <span class="contact-value">leneq@icloud.com</span>
+          <span class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6a060f040f1b2a030906051f0e44090507">[email&#160;protected]</a></span>
         </div>
         <div class="contact-detail">
           <span class="contact-label">Location</span>
-          <span class="contact-value">New York, NY · Remote-Friendly</span>
+          <span class="contact-value">New York, New York · Remote-Friendly</span>
         </div>
         <div class="contact-detail">
           <span class="contact-label">Status</span>
@@ -869,10 +913,10 @@
 </section>
 
 <footer>
-  © 2026 Charlene Quinones · Senior Technical Writer · New York, NY
+  © 2026 Charlene Quinones · Senior Technical Writer · New York, New York
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const els = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
@@ -885,12 +929,7 @@
   els.forEach(el => obs.observe(el));
 
   function handleSubmit() {
-    const btn = document.querySelector('.submit-btn');
-    btn.textContent = 'Sending...';
-    setTimeout(() => {
-      btn.style.display = 'none';
-      document.getElementById('successMsg').style.display = 'block';
-    }, 1000);
+    document.getElementById('successMsg').style.display = 'block';
   }
 </script>
 </body>
